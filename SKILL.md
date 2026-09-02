@@ -18,7 +18,7 @@ must not contain the ask only in the body. Restate it at the very end in
 this block:
 
 ```
----
+|---------------------------------------------------------------|
 
 **Bottom line - what I need from you:** <one sentence stating the decision>
 
@@ -29,11 +29,34 @@ this block:
 Answer with a number.
 ```
 
+## The line
+
+The separator is a two-line lockup: an ASCII rule, then the bold
+"Bottom line" label directly beneath it. That is the joke and the
+mnemonic - the words sit under the line, so they are literally the
+bottom line.
+
+- The rule (copy verbatim, a pipe, 63 dashes, a pipe):
+  `|---------------------------------------------------------------|`
+- Under it, after a blank line, the label opens the ask:
+  `**Bottom line - what I need from you:** ...`
+
+Why the blank lines are load-bearing: a pipe-and-dash line is exactly
+GFM's table delimiter row, so without a blank line above it the
+paragraph before would be swallowed as a table header. Standing alone
+between blank lines it is not a table, not a horizontal rule, and not a
+setext heading - just a literal paragraph that renders the same in
+every markdown view and raw terminal. Always leave a blank line above
+the rule and between the rule and the label. Do not improvise other
+widths or characters; one fixed rule means the lockup is instantly
+recognizable in a scrollback.
+
 ## Rules for the block
 
 1. **Last thing, always.** Nothing after the block: no caveats, no "also
    note", no sources, no sign-off. If a caveat matters, it belongs in an
-   option label or in the body above.
+   option label or in the body above. The ASCII line always opens the
+   block; nothing but the block ever follows the line.
 2. **One decision per block when possible.** Prefer yes/no questions. If
    several decisions are genuinely unavoidable, label them Q1, Q2, Q3, each
    with its own numbered options, so the answer can be as short as
@@ -48,12 +71,12 @@ Answer with a number.
    the work. Summaries of the work go at the TOP of the message (lead with
    the outcome); the ask goes at the BOTTOM. Do not merge the two.
 6. **Nothing needed? Say so in one line.** When the task is done and no
-   input is required, end with:
+   input is required, end with the rule and then:
    `**Bottom line:** done, nothing needed from you.`
    and stop. No options, no manufactured questions.
 7. **Too complex for a number? Say that explicitly.** When the decision
    genuinely requires the user to read the details, do not pretend it fits
-   in three options. Write:
+   in three options. Use the rule, then:
    `**Bottom line - this one needs your read:** see <named section> above,
    then tell me <the specific thing>.`
    Point at the exact section, not "the above".
@@ -89,7 +112,7 @@ Good:
 
 > ...body of the message, full findings, as long as it needs to be...
 >
-> ---
+> |---------------------------------------------------------------|
 >
 > **Bottom line - what I need from you:** should I write PLAN v2 now?
 >
@@ -98,3 +121,11 @@ Good:
 > 3. Revise something first (tell me what)
 >
 > Answer with a number.
+
+Good, task complete with nothing to decide:
+
+> ...body of the message...
+>
+> |---------------------------------------------------------------|
+>
+> **Bottom line:** done, nothing needed from you.

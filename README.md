@@ -15,6 +15,8 @@ Whenever a response needs something from the user, it must end with a crisp
 block, as the literal last thing in the message:
 
 ```
+|---------------------------------------------------------------|
+
 **Bottom line - what I need from you:** should I write PLAN v2 now?
 
 1. Yes, write PLAN v2 with the four fixes (recommended)
@@ -22,6 +24,22 @@ block, as the literal last thing in the message:
 3. Revise something first (tell me what)
 
 Answer with a number.
+```
+
+The lockup is two lines: an ASCII rule, then the bold "Bottom line"
+label directly beneath it - the words sit under the line, so they are
+literally the bottom line. The rule needs a blank line on each side to
+survive markdown rendering: a pipe-and-dash line is GFM table-delimiter
+syntax, and without the blank line above, the preceding paragraph would
+be parsed as a table header. Isolated, it renders as-is in a raw
+terminal and a rendered view alike. It is also the anchor: scrolling up
+through scrollback, the eye snaps to it before anything else. When
+nothing is needed, the same rule closes with one line:
+
+```
+|---------------------------------------------------------------|
+
+**Bottom line:** done, nothing needed from you.
 ```
 
 The full detail stays in the body for context. The block only states the
